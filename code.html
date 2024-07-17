@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>APP Name Coding Challenge by Todd Myers</title>
+    <title>Back to the Front Name Coding Challenge by Todd Myers</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -45,7 +45,7 @@
             <div class="container-fluid">
               <a class="navbar-brand" href="index.html">
                 <img src="/img/logos/MyLogoLightSm.png" width="40" class="d-inline-block align-text-top">
-                APP NAME
+                Back to the Front
               </a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -81,19 +81,64 @@
                 <pre class="line-numbers">
                   <code class="language-javascript">
                     //get values from the screen and display them
-                    function getValues2(){
-                    let inputMessage = document.getElementById("message").value;
-                    let alertMessage = document.getElementById("alertMessage");
-                    alertMessage.innerText = inputMessage;
+                    function getValues(){
+                        let inputMessage = document.getElementById("message").value;
+                        let alertMessage = document.getElementById("alertMessage");
 
-}
+                        let reverseMessage = reverse(inputMessage);
+
+                        alertMessage.innerText = reverse(inputMessage);
+
+                        alertMessage.innerHTML = displayMessage(inputMessage, reverseMessage)
+
+                    }
+
+                    //return the message in reverse
+                    function reverse(message){
+                        let reverseMessage = "";
+
+                        for (let index = message.length - 1; index >= 0; index--){
+                            reverseMessage += message[index];
+                        }
+
+                        return reverseMessage;
+                    }
+
+                    //displays inputMessage and reverseMessage. Makes "alertMessage" visable
+                    function displayMessage(inputMessage, reverseMessage){
+                        let alertElement = document.getElementById("alertMessage");
+                        alertElement.style.opacity = 1;
+
+
+
+                        let message = `<div>The message, <strong>${inputMessage}</strong>, reversed is, <strong>${reverseMessage}</strong></div>`;
+                        
+                        
+                        return message;
+                    }
                   </code>
                 </pre>
               </div>
               <div class="col-12 col-lg-4">
-                <p>the code is structured in one function</p>
-                <h5>getValues2</h5>
-                <p>Displays the user entered message</p>
+                <h4>this code is structured into three functions</h4>
+                <h5>getValues</h5>
+                <p>This function retrieves the input from the HTML element with the id "message". It then
+                  retrieves a reference to the HTML element with the id "alertMessage". After this is complete
+                  it calls the "reverse" function to reverse the input message. Then it sets the content of
+                  "alertMessage" to the reversed message. It then updates the HTML of "alertMessage" using the
+                  function "displayMessage" which retruns a string displaying both the original message and it's
+                  reverse.
+                </p>
+                <h5>reverse</h5>
+                <p>When this function is called from getValues with the perameter "inputMessage" it first initializes
+                  an empty string for "reverseMessage" before iterating over each character in reverse order using
+                  a for loop. After the loop is complete it returns the "reverseMessage" variable.
+                </p>
+                <h5>displayMessage</h5>
+                <p>This function starts by making the element "alertMessage" visable by setting the opacity to 1. It then
+                  constructs and HTML string that contains both the original message and the reverse message. Then it returns
+                  the constructed HTML string.
+                </p>
               </div>
             </div>
         </div>

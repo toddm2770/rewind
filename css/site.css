@@ -96,3 +96,8 @@ footer i{
 footer i:hover{
     color: var(--cf-theme-200)
 }
+
+#alertMessage{
+    opacity: 0;
+    transition: 1.00s ease-in-out;
+}
